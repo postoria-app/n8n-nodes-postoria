@@ -1,0 +1,79 @@
+{
+	"name": "Postoria - Schedule a Post",
+	"nodes": [
+		{
+			"parameters": {},
+			"id": "63c1370d-1ce1-430e-b25d-20a46a939f5b",
+			"name": "When clicking Execute workflow",
+			"type": "n8n-nodes-base.manualTrigger",
+			"typeVersion": 1,
+			"position": [260, 300]
+		},
+		{
+			"parameters": {
+				"resource": "post",
+				"operation": "create",
+				"workspaceId": {
+					"mode": "id",
+					"value": "1"
+				},
+				"publishMode": "schedule",
+				"socialAccountIds": [1],
+				"scheduledTime": "={{ $now.plus({ hours: 2 }).toISO() }}",
+				"caption": "Scheduled from n8n with Postoria",
+				"mediaIds": "",
+				"linkUrl": "",
+				"additionalFields": {},
+				"youtubeOptions": {},
+				"tiktokOptions": {},
+				"simplify": true
+			},
+			"id": "43e45b73-7dc0-4ca4-a4ce-32836d42e5da",
+			"name": "Schedule Postoria Post",
+			"type": "@postoria/n8n-nodes-postoria.postoria",
+			"typeVersion": 1,
+			"position": [560, 300],
+			"credentials": {
+				"postoriaApi": {
+					"id": "REPLACE_WITH_CREDENTIAL_ID",
+					"name": "Postoria API"
+				}
+			}
+		},
+		{
+			"parameters": {
+				"content": "## Setup\nSelect a **Postoria API** credential, then replace the placeholder workspace and social account IDs in the Postoria node.",
+				"height": 180,
+				"width": 360
+			},
+			"id": "55ea9ca7-c42a-48ba-8538-e0268f5c6cb2",
+			"name": "Setup Notes",
+			"type": "n8n-nodes-base.stickyNote",
+			"typeVersion": 1,
+			"position": [480, 60]
+		}
+	],
+	"pinData": {},
+	"connections": {
+		"When clicking Execute workflow": {
+			"main": [
+				[
+					{
+						"node": "Schedule Postoria Post",
+						"type": "main",
+						"index": 0
+					}
+				]
+			]
+		}
+	},
+	"active": false,
+	"settings": {
+		"executionOrder": "v1"
+	},
+	"versionId": "cc9ca2b5-880e-4c6a-a00a-6e91e30f0d56",
+	"meta": {
+		"templateCredsSetupCompleted": false
+	},
+	"tags": []
+}

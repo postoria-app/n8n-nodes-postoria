@@ -1,0 +1,8 @@
+credentials/
+nodes/
+tests/
+.github/
+node_modules/
+*.tgz
+*.zip
+.env

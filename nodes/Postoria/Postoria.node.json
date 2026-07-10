@@ -1,0 +1,21 @@
+{
+	"node": "@postoria/n8n-nodes-postoria",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Marketing", "Productivity"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/postoria-app/n8n-nodes-postoria?tab=readme-ov-file#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/postoria-app/n8n-nodes-postoria?tab=readme-ov-file"
+			},
+			{
+				"url": "https://postoria.io/help-center/postoria-public-api"
+			}
+		]
+	}
+}

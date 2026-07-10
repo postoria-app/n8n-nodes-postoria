@@ -1,0 +1,81 @@
+{
+	"name": "@postoria/n8n-nodes-postoria",
+	"version": "1.0.0",
+	"description": "Official n8n community node for publishing, scheduling, and managing social media content with Postoria.",
+	"license": "MIT",
+	"homepage": "https://github.com/postoria-app/n8n-nodes-postoria#readme",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"postoria",
+		"social-media",
+		"social-media-automation",
+		"content-scheduling"
+	],
+	"author": {
+		"name": "Postoria",
+		"email": "contact@postoria.io"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/postoria-app/n8n-nodes-postoria.git"
+	},
+	"bugs": {
+		"url": "https://github.com/postoria-app/n8n-nodes-postoria/issues"
+	},
+	"engines": {
+		"node": ">=22.22.0"
+	},
+	"scripts": {
+		"build": "n8n-node build && node scripts/copy-static-assets.cjs",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"test": "npm run build && node --test tests/*.test.cjs",
+		"test:unit": "node --test tests/*.test.cjs",
+		"typecheck": "tsc --noEmit",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease",
+		"prepack": "npm run build"
+	},
+	"files": [
+		"dist",
+		"examples",
+		"README.md",
+		"CHANGELOG.md",
+		"LICENSE",
+		"SECURITY.md",
+		"SUPPORT.md"
+	],
+	"sideEffects": false,
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/PostoriaApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/Postoria/Postoria.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "0.38.8",
+		"eslint": "9.39.4",
+		"prettier": "3.8.3",
+		"release-it": "20.2.0",
+		"typescript": "5.9.3",
+		"@types/node": "22.19.21",
+		"n8n-workflow": "2.16.0"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	},
+	"publishConfig": {
+		"access": "public",
+		"provenance": true
+	},
+	"packageManager": "npm@11.16.0"
+}

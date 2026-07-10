@@ -1,0 +1,52 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.18.0'
+          cache: npm
+
+      - name: Set up npm
+        run: npm install --global npm@11.16.0
+
+      - name: Verify toolchain
+        run: |
+          node --version
+          npm --version
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Test
+        run: npm test
+
+      - name: Release
+        run: |
+          [ -n "$NPM_TOKEN" ] && npm config set //registry.npmjs.org/:_authToken "$NPM_TOKEN"
+          npm run release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

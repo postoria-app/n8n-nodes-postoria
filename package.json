@@ -1,6 +1,6 @@
 {
 	"name": "@postoria/n8n-nodes-postoria",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Official n8n community node for publishing, scheduling, and managing social media content with Postoria.",
 	"license": "MIT",
 	"homepage": "https://github.com/postoria-app/n8n-nodes-postoria#readme",

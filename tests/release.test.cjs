@@ -107,7 +107,7 @@ test('nonexistent daylight-saving local time is rejected', () => {
 test('node metadata, example workflow, and SVG icons are valid distributable assets', () => {
 	const metadata = JSON.parse(read('nodes/Postoria/Postoria.node.json'));
 	const example = JSON.parse(read('examples/schedule-post.json'));
-	assert.equal(metadata.node, '@postoria/n8n-nodes-postoria');
+	assert.equal(metadata.node, '@postoria/n8n-nodes-postoria.postoria');
 	assert.equal(
 		example.nodes.some((node) => node.type === '@postoria/n8n-nodes-postoria.postoria'),
 		true,

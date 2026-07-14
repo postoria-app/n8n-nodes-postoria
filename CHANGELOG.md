@@ -2,6 +2,13 @@
 
 All notable changes to this project are documented in this file.
 
+## 1.0.1 - 2026-07-14
+
+### Fixed
+
+- Corrected the n8n Codex node identifier.
+- Updated the node category to `Marketing & Content`.
+
 ## 1.0.0 - 2026-07-11
 
 ### Added
